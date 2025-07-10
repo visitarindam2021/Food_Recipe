@@ -159,7 +159,7 @@ npm run dev
 
 ## 📞 Contact
 
-Built with ❤️ by **[Your Name]**
+Built with ❤️ by Arindam Roy
 GitHub: [https://github.com/your-username](https://github.com/your-username)
 Email: yourname@example.com
 
