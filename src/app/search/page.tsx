@@ -1,31 +1,45 @@
 "use client";
-import { Suspense } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import { fetcher } from "@/lib/fetcher";
 import RecipeCard from "@/components/RecipeCard";
-import { useState } from "react";
 
 export default function SearchPage() {
-  return (
-    <Suspense fallback={<div>Loading search...</div>}>
-      <ActualSearchComponent />
-    </Suspense>
-  );
-}
-
-function ActualSearchComponent() {
   const searchParams = useSearchParams();
   const urlQuery = searchParams?.get('query') || '';
   const [query, setQuery] = useState(urlQuery);
-  
+  const [matchedCategory, setMatchedCategory] = useState<string | null>(null);
+
+  // Fetch all categories once
+  const { data: categoriesData } = useSWR("categories.php", fetcher);
+  const categories = categoriesData?.categories?.map((cat: any) => cat.strCategory.toLowerCase()) || [];
+
   // Update local state when URL query changes
   useEffect(() => {
     setQuery(urlQuery);
   }, [urlQuery]);
 
-  const { data, isLoading } = useSWR(query ? `search.php?s=${query}` : null, fetcher);
-  const recipes = data?.meals || [];
+  // Check if query matches a category
+  useEffect(() => {
+    if (query && categories.length > 0) {
+      const match = categories.find((cat: string) => cat === query.toLowerCase());
+      setMatchedCategory(match || null);
+    } else {
+      setMatchedCategory(null);
+    }
+  }, [query, categories]);
+
+  // Fetch recipes based on match
+  const { data: recipesData, isLoading } = useSWR(
+    matchedCategory
+      ? `filter.php?c=${encodeURIComponent(matchedCategory)}`
+      : query
+        ? `search.php?s=${encodeURIComponent(query)}`
+        : null,
+    fetcher
+  );
+  const recipes = recipesData?.meals || [];
 
   return (
     <div className="max-w-6xl mx-auto py-8 px-4">
