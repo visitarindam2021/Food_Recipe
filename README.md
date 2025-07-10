@@ -1,185 +1,167 @@
-Recipe Viewer with Favorites
-Objective
-Create a very simple website to browse recipes using Next.js (version 14+). Users can:
-●
-●
-●
-View recipes from TheMealDB API.
-Save favorite recipes.
-Manage their favorite recipes.
-Time limit: 24 hours
-Features
-1. View Recipes
-●
-○
-○
-○
-Show a list of recipes with:
-Recipe name.
-Image.
-Short description (if available).
-2. Recipe Details
-●
-○
-○
-○
-○
-When a recipe is clicked, show:
-Name.
-Ingredients.
-Instructions.
-Dish image.
-3. Favorite Recipes
-●
-●
-Mark recipes as "favorites" from the detail view.
-Store favorite recipes in a database.
-4. Favorites Tab
-●
-●
-Show all saved favorite recipes.
-Allow users to remove recipes from their favorites. (optional)
-5. Responsive Design
-● Make sure the site works well on phones, tablets, and desktops.
-15-MINUTE CHICKEN & HALLOUMI BURGERS
-INSTRUCTIONS
-STEP 1
-Favorite Button
-Put the chicken breasts between two pieces of baking parchment and use a
-rolling pin to gently bash them until they are approximately 1cm thick.
-Cut each chicken breast into two even pieces.
-STEP 2
-If you're using a frying pan, heat two frying pans over medium-high heat, with
-one of them containing oil.
-Fry the chicken in the oiled pan for 3-4 mins on each side until they are cooked
-through.
-Season the chicken, reduce the heat, drizzle in the chilli sauce and half of the
-lemon juice, and cook for an additional 1-2 mins until the sauce is reduced.
-Remove the chicken from the heat.
-If you're using an air-fryer, preheat it to 180C for 4 mins.
-Add the chicken to the air-fryer and cook for 12 mins.
-Drizzle over the chilli sauce and half the lemon juice and cook for an additional 1-
-2 mins until the chicken is cooked through and the sauce is reduced.
-Remove the chicken and keep it warm.
-STEP 3
-While the chicken is cooking, toast the buns in the dry frying pan for 30 seconds.
-Transfer them to a plate.
-If you're using an air fryer, put the buns in the air fryer for 1-2 mins until they are
-warm.
-Increase the air fryer temperature to 200C.
-Add the halloumi to the air fryer basket and cook for 10 mins, turning halfway
-through, until it's golden.
-Toss the cabbage with the mayo and the remaining lemon juice.
-STEP 4
-Spoon the hummus (or dip of your choice) into the toasted buns, then top with
-the rocket, chilli chicken, halloumi, and peppers.
-Drizzle with a little more chilli sauce, spoon over the cabbage, season with black
-pepper, and top with the bun lids.
-Serve with any extra cabbage on the side or a green salad.
-All Meals Favorite Meals
-15-minute chicken & halloumi burgers Lamb Pilaf (Plov) Strawberries Romanoff Potato Salad (Olivier Salad)
-Blini Pancakes Fish Soup (Ukha) Beetroot Soup (Borscht) Cabbage Soup (Shchi)
-Technical Overview
-Frontend
-●
-●
-Use Next.js.
-Style with Tailwind CSS or any component framework you are comfortable with.
-Backend
-●
-●
-Use Next.js API routes for actions like saving or removing favorites.
-Use MongoDB Atlas to store favorite recipes.
-Database Schema
-● Use one collection in MongoDB - favorite_recipes:
+# 🥘 Recipe Viewer with Favorites
+
+A simple, responsive web application to browse and save your favorite recipes. Built with **Next.js 14+**, styled with **Tailwind CSS**, and powered by **TheMealDB API** and **MongoDB Atlas**.
+
+![Demo Screenshot](./public/demo-screenshot.png)
+
+---
+
+## 🚀 Objective
+
+Build a recipe app within 24 hours that allows users to:
+- 🔍 View recipes from TheMealDB API
+- ❤️ Save favorite recipes
+- 🗂️ Manage favorites with a tab
+- 📱 Enjoy a mobile-responsive UI
+
+---
+
+## ✨ Features
+
+### 🔍 View Recipes
+- Browse a list of recipes with:
+  - 🍽️ Name
+  - 🖼️ Image
+  - 📝 Short description (if available)
+
+### 📄 Recipe Details
+- Click a recipe to view:
+  - 📛 Name
+  - 🍴 Ingredients
+  - 🧑‍🍳 Instructions
+  - 📷 Dish image
+
+### ❤️ Favorite Recipes
+- Mark/unmark recipes as favorite
+- Stored in MongoDB
+
+### ⭐ Favorites Tab
+- View all saved recipes
+- Option to remove any recipe
+
+### 📱 Responsive Design
+- Works seamlessly on desktop, tablet, and mobile
+
+---
+
+## 🛠️ Tech Stack
+
+| Frontend        | Backend/API         | Database       |
+|----------------|---------------------|----------------|
+| Next.js 14+     | Next.js API Routes  | MongoDB Atlas  |
+| Tailwind CSS    | Axios for HTTP reqs | Mongoose ORM   |
+
+---
+
+## 🗂️ Folder Structure
+
+```
+recipe-viewer/
+├── app/
+│   ├── page.tsx
+│   ├── recipes/[id]/page.tsx
+│   ├── favorites/page.tsx
+│   ├── signup/page.tsx (optional)
+├── components/
+│   ├── Header.tsx
+│   ├── RecipeCard.tsx
+├── lib/
+│   └── db.ts
+├── models/
+│   └── Favorite.ts
+├── pages/api/favorites/
+│   ├── index.ts
+│   └── [id].ts
+├── public/
+│   └── demo-screenshot.png
+├── .env.local
+└── README.md
+```
+
+---
+
+## 🧪 MongoDB Schema
+
+```json
 {
   "recipeId": "52772",
   "recipeName": "Chicken Handi",
   "imageUrl": "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg"
 }
-External API
-●
-○
-○
-○
-Use TheMealDB API for recipe data:
-Get recipes: https://www.themealdb.com/api/json/v1/1/search.php?s=
-Get random recipe: https://www.themealdb.com/api/json/v1/1/random.php
-Get recipe details: https://www.themealdb.com/api/json/v1/1/lookup.php?i={id}
-Deployment
-●
-●
-●
-Host the app on Vercel.
-Use MongoDB Atlas (free tier).
-Set up environment variables for API keys and database connections.
-Step-by-Step Instructions
-Step 1: Project Setup
-1. Create a new Next.js app:
-npx create-next-app@latest recipe-viewercd recipe-viewer
-1. Install dependencies:
-npm install mongoose axios
-Step 2: Display Recipes
-● Fetch and show recipe data on the homepage using TheMealDB API.
-Step 3: Recipe Details Page
-●
-●
-Create a dynamic route: /recipe/[id] .
-Fetch detailed recipe data when the page loads.
-Step 4: Add Favorites
-1.
-2.
-Set up MongoDB Atlas.
-Create API routes:
-○
-○
-○
-GET /api/favorites: Fetch all saved favorites.
-POST /api/favorites: Save a new favorite.
-DELETE /api/favorites/[id]: Remove a recipe.
-Step 5: Favorites Tab
-●
-○
-○
-Add a tab to:
-Show all favorites.
-Allow removing recipes.
-Step 6: Deploy
-●
-●
-Deploy on Vercel.
-Configure environment variables for MongoDB and API keys - make sure these keys aren't publicly
-accessible.
-Evaluation Criteria
-Core Features
-●
-○
-○
-○
-Can users:
-See recipes from TheMealDB?
-View recipe details?
-Save and manage favorites in MongoDB?
-Code Quality
-● Clean, modular, and well-documented code.
-UI/UX
-●
-●
-Responsive and easy to use.
-Clean and visually appealing design.
-Deployment
-● App live on Vercel with working database operations.
-Post Submission Interview
-● A number of questions will be asked about the project, its implementation, and beyond
-Bonus Points (entirely optional, but pushes you above the rest)
-●
-●
-●
-●
-UI/UX enhancements - thoughtful redesign of the target UI presented.
-Extra features (e.g., search, random recipe suggestions).
-User Management
-Authentication Implementation
+```
+
+---
+
+## 🔌 External APIs Used
+
+- [🔗 TheMealDB Search API](https://www.themealdb.com/api/json/v1/1/search.php?s=)
+- [🔗 Random Recipe API](https://www.themealdb.com/api/json/v1/1/random.php)
+- [🔗 Recipe Details API](https://www.themealdb.com/api/json/v1/1/lookup.php?i={id})
+
+---
+
+## 🧑‍💻 Setup & Run Locally
+
+### 🔧 1. Clone & Install
+```bash
+git clone https://github.com/your-username/recipe-viewer.git
+cd recipe-viewer
+npm install
+```
+
+### 🧪 2. Environment Variables (`.env.local`)
+```env
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<dbname>?retryWrites=true&w=majority
+```
+
+### ▶️ 3. Start Development
+```bash
+npm run dev
+```
+
+---
+
+## 🌍 Deployment
+
+- ✅ Hosted on [Vercel](https://vercel.com/)
+- ✅ Database on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+
+---
+
+## ✅ Evaluation Checklist
+
+- ✔️ Can users view recipe data from API?
+- ✔️ Can they see details and ingredients?
+- ✔️ Can users save/delete favorites?
+- ✔️ Is it responsive and visually appealing?
+- ✔️ Clean code and modular structure?
+- ✔️ Live demo available on Vercel?
+
+---
+
+## 🔒 Optional Enhancements
+
+- [x] Search bar
+- [x] Random recipe suggestion
+- [ ] User authentication
+- [ ] Category-based browsing
+
+---
+
+## 📸 Sample Screens
+
+> Add screenshots of:
+- Home page with recipe list
+- Recipe detail view
+- Favorite tab
+
+---
+
+## 📞 Contact
+
+Built with ❤️ by **[Your Name]**
+GitHub: [https://github.com/your-username](https://github.com/your-username)
+Email: yourname@example.com
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
