@@ -1,61 +1,62 @@
-# 🥘 Recipe Viewer with Favorites
+🥘 Recipe Viewer with Favorites
+A simple, responsive web application to browse and save your favorite recipes. Built with Next.js 14+, styled with Tailwind CSS, and powered by TheMealDB API and MongoDB Atlas.
 
-A simple, responsive web application to browse and save your favorite recipes. Built with **Next.js 14+**, styled with **Tailwind CSS**, and powered by **TheMealDB API** and **MongoDB Atlas**.
-
-![Demo Screenshot](./public/demo-screenshot.png)
-
----
-
-## 🚀 Objective
-
+🚀 Objective
 Build a recipe app within 24 hours that allows users to:
-- 🔍 View recipes from TheMealDB API
-- ❤️ Save favorite recipes
-- 🗂️ Manage favorites with a tab
-- 📱 Enjoy a mobile-responsive UI
 
----
+🔍 View recipes from TheMealDB API
 
-## ✨ Features
+❤️ Save favorite recipes
 
-### 🔍 View Recipes
-- Browse a list of recipes with:
-  - 🍽️ Name
-  - 🖼️ Image
-  - 📝 Short description (if available)
+🗂️ Manage favorites with a tab
 
-### 📄 Recipe Details
-- Click a recipe to view:
-  - 📛 Name
-  - 🍴 Ingredients
-  - 🧑‍🍳 Instructions
-  - 📷 Dish image
+📱 Enjoy a mobile-responsive UI
 
-### ❤️ Favorite Recipes
-- Mark/unmark recipes as favorite
-- Stored in MongoDB
+✨ Features
 
-### ⭐ Favorites Tab
-- View all saved recipes
-- Option to remove any recipe
+🔍 View Recipes
+Browse a list of recipes with:
 
-### 📱 Responsive Design
-- Works seamlessly on desktop, tablet, and mobile
+🍽️ Name
 
----
+🖼️ Image
 
-## 🛠️ Tech Stack
+📝 Short description (if available)
 
-| Frontend        | Backend/API         | Database       |
-|----------------|---------------------|----------------|
-| Next.js 14+     | Next.js API Routes  | MongoDB Atlas  |
-| Tailwind CSS    | Axios for HTTP reqs | Mongoose ORM   |
+📄 Recipe Details
+Click a recipe to view:
 
----
+📛 Name
 
-## 🗂️ Folder Structure
+🍴 Ingredients
 
-```
+🧑‍🍳 Instructions
+
+📷 Dish image
+
+❤️ Favorite Recipes
+Mark/unmark recipes as favorite
+
+Stored in MongoDB
+
+⭐ Favorites Tab
+View all saved recipes
+
+Option to remove any recipe
+
+📱 Responsive Design
+Works seamlessly on desktop, tablet, and mobile
+
+🛠️ Tech Stack
+
+| Frontend     | Backend/API         | Database      |
+| ------------ | ------------------- | ------------- |
+| Next.js 14+  | Next.js API Routes  | MongoDB Atlas |
+| Tailwind CSS | Axios for HTTP reqs | Mongoose ORM  |
+
+
+🗂️ Folder Structure
+
 recipe-viewer/
 ├── app/
 │   ├── page.tsx
@@ -76,59 +77,50 @@ recipe-viewer/
 │   └── demo-screenshot.png
 ├── .env.local
 └── README.md
-```
 
----
 
-## 🧪 MongoDB Schema
+🧪 MongoDB Schema
 
-```json
 {
   "recipeId": "52772",
   "recipeName": "Chicken Handi",
   "imageUrl": "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg"
 }
-```
 
----
 
-## 🔌 External APIs Used
+🔌 External APIs Used
+🔗 Get recipes
+https://www.themealdb.com/api/json/v1/1/search.php?s=
 
-- [🔗 TheMealDB Search API](https://www.themealdb.com/api/json/v1/1/search.php?s=)
-- [🔗 Random Recipe API](https://www.themealdb.com/api/json/v1/1/random.php)
-- [🔗 Recipe Details API](https://www.themealdb.com/api/json/v1/1/lookup.php?i={id})
+🔗 Get random recipe
+https://www.themealdb.com/api/json/v1/1/random.php
 
----
+🔗 Get recipe details
+https://www.themealdb.com/api/json/v1/1/lookup.php?i={id}
 
-## 🧑‍💻 Setup & Run Locally
+🧑‍💻 Setup & Run Locally
 
-### 🔧 1. Clone & Install
-```bash
-git clone https://github.com/your-username/recipe-viewer.git
+git clone https://github.com/visitarindam2021/recipe-viewer.git
 cd recipe-viewer
 npm install
-```
 
-### 🧪 2. Environment Variables (`.env.local`)
-```env
+
+🧪 2. Environment Variables (`.env.local`)
 MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<dbname>?retryWrites=true&w=majority
-```
 
-### ▶️ 3. Start Development
-```bash
+
+▶️ 3. Start Development
 npm run dev
-```
 
----
 
-## 🌍 Deployment
+🌍 Deployment
 
 - ✅ Hosted on [Vercel](https://vercel.com/)
+- ✅ Live App: https://food-recipe-pink-nine.vercel.app/
 - ✅ Database on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 
----
 
-## ✅ Evaluation Checklist
+✅ Evaluation Checklist
 
 - ✔️ Can users view recipe data from API?
 - ✔️ Can they see details and ingredients?
@@ -137,9 +129,9 @@ npm run dev
 - ✔️ Clean code and modular structure?
 - ✔️ Live demo available on Vercel?
 
----
 
-## 🔒 Optional Enhancements
+
+🔒 Optional Enhancements
 
 - [x] Search bar
 - [x] Random recipe suggestion
@@ -148,28 +140,25 @@ npm run dev
 
 ---
 
-## 📸 Sample Screens
+📸 Sample Screens
 
 > Add screenshots of:
 - Home page with recipe list
 - Recipe detail view
 - Favorite tab
 
----
-
-## 📞 Contact
+📞 Contact
 
 Built with ❤️ by Arindam Roy
-GitHub: [https://github.com/your-username](https://github.com/your-username)
-Email: yourname@example.com
+🔗 GitHub: https://github.com/visitarindam2021
+📧 Email: visitarindam2021@gmail.com
+📱 Phone: +91-9907197945
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
 First, run the development server:
-
-```bash
 npm run dev
 # or
 yarn dev
@@ -177,7 +166,7 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
