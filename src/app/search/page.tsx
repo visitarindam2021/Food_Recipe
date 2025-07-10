@@ -1,4 +1,5 @@
 "use client";
+import { Suspense } from "react";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
@@ -6,6 +7,14 @@ import { fetcher } from "@/lib/fetcher";
 import RecipeCard from "@/components/RecipeCard";
 
 export default function SearchPage() {
+  return (
+    <Suspense fallback={<div>Loading search...</div>}>
+      <ActualSearchComponent />
+    </Suspense>
+  );
+}
+
+function ActualSearchComponent() {
   const searchParams = useSearchParams();
   const urlQuery = searchParams?.get('query') || '';
   const [query, setQuery] = useState(urlQuery);
