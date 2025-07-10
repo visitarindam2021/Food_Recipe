@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Link from "next/link";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import Header from "@/components/header";
-import { SessionProvider } from "next-auth/react";
 import SessionClientProvider from "@/components/SessionClientProvider";
 
 export const metadata: Metadata = {

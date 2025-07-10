@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import 'swiper/css';
@@ -41,7 +40,7 @@ const fallbackCategories = [
 ];
 
 const CategoriesList = () => {
-  const { data, isLoading, error } = useSWR('categories.php', fetcher);
+  const { data, isLoading } = useSWR('categories.php', fetcher);
   
   if (isLoading) return (
     <div className='z-0 mt-3 flex flex-col gap-6'>

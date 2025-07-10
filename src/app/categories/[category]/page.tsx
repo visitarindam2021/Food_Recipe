@@ -3,7 +3,6 @@ import { useParams } from "next/navigation";
 import useSWR from "swr";
 import { fetcher } from "@/lib/fetcher";
 import RecipeCard from "@/components/RecipeCard";
-import { useState, useEffect } from "react";
 
 export default function CategoryRecipesPage() {
   const params = useParams();
