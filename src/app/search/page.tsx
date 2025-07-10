@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import { fetcher } from "@/lib/fetcher";
 import RecipeCard from "@/components/RecipeCard";
+import { useState } from "react";
 
 export default function SearchPage() {
   return (
